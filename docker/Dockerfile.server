@@ -1,0 +1,14 @@
+FROM node:20-alpine AS deps
+WORKDIR /app/server
+COPY server/package*.json ./
+RUN npm install --omit=dev
+
+FROM node:20-alpine
+ENV NODE_ENV=production
+WORKDIR /app/server
+COPY --from=deps /app/server/node_modules ./node_modules
+COPY server/package*.json ./
+COPY server/src ./src
+
+EXPOSE 4000
+CMD ["node", "src/server.js"]
