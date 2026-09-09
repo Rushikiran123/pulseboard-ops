@@ -1,0 +1,8 @@
+{
+  "name": "pulseboard-ops-sdk",
+  "version": "1.0.0",
+  "description": "Custom event SDK for the pulseboard-ops ingestion API",
+  "main": "pulseboardClient.js",
+  "license": "MIT",
+  "dependencies": {}
+}
